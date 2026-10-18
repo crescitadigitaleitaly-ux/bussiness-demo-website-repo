@@ -1,0 +1,138 @@
+@import "tailwindcss";
+
+@theme {
+  --color-paper: #f8fbfb;
+  --color-surface: #ffffff;
+  --color-ink: #19343b;
+  --color-muted: #4b6268;
+  --color-accent: #168c88;
+  --color-accent-deep: #0d6865;
+  --color-soft: #dcefed;
+  --color-mist: #eef6f5;
+  --color-line: rgb(25 52 59 / 0.1);
+
+  --font-sans: var(--font-onest), ui-sans-serif, system-ui, sans-serif;
+  --font-serif: var(--font-newsreader), ui-serif, Georgia, serif;
+
+  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@layer base {
+  html {
+    -webkit-text-size-adjust: 100%;
+    scroll-padding-top: 6rem;
+  }
+  body {
+    background: var(--color-paper);
+    color: var(--color-ink);
+    font-family: var(--font-sans);
+    font-feature-settings: "ss01", "cv11";
+    text-rendering: optimizeLegibility;
+  }
+  ::selection {
+    background: var(--color-accent);
+    color: #fff;
+  }
+  :focus-visible {
+    outline: 2px solid var(--color-accent);
+    outline-offset: 3px;
+    border-radius: 4px;
+  }
+}
+
+@utility container-x {
+  @apply mx-auto w-full max-w-[1320px] px-5 sm:px-8 lg:px-12;
+}
+@utility display {
+  @apply font-serif font-normal tracking-[-0.02em] leading-[1.02] text-balance;
+}
+@utility serif-accent {
+  @apply font-serif font-normal italic tracking-[-0.01em] text-accent-deep;
+}
+@utility arch {
+  border-radius: 999px 999px 1.5rem 1.5rem;
+}
+@utility eyebrow {
+  @apply inline-flex items-center gap-2.5 rounded-full bg-soft px-3.5 py-1.5 text-[0.75rem] font-medium uppercase tracking-[0.14em] text-accent-deep;
+  &::before {
+    content: "";
+    @apply size-1.5 rounded-full bg-accent;
+  }
+}
+@utility lead {
+  @apply text-lg leading-relaxed text-muted sm:text-xl text-pretty;
+}
+@utility btn {
+  @apply relative inline-flex items-center justify-center gap-2 overflow-hidden rounded-full px-6 py-3.5 text-[0.95rem] font-medium transition-all duration-300 ease-out-expo active:scale-[0.98];
+}
+@utility btn-primary {
+  @apply btn bg-accent-deep text-white hover:bg-ink hover:shadow-[0_10px_30px_-10px_rgb(13_104_101/0.55)];
+}
+@utility btn-ghost {
+  @apply btn border border-line bg-surface/60 text-ink hover:border-ink/30 hover:bg-surface;
+}
+@utility btn-light {
+  @apply btn bg-white text-ink hover:bg-mist;
+}
+@utility link-underline {
+  @apply bg-[linear-gradient(currentColor,currentColor)] bg-[length:0%_1px] bg-left-bottom bg-no-repeat pb-0.5 transition-[background-size] duration-500 ease-out-expo hover:bg-[length:100%_1px];
+}
+@utility field {
+  @apply w-full rounded-xl border border-line bg-surface px-4 py-3 text-base text-ink placeholder:text-muted/70 transition-colors focus:border-accent focus:outline-none focus:ring-4 focus:ring-accent/10 aria-[invalid=true]:border-red-700;
+}
+@utility label {
+  @apply mb-2 block text-sm font-medium text-ink;
+}
+
+.img-zoom img {
+  transition: transform 1.2s var(--ease-out-expo);
+}
+.img-zoom:hover img,
+.group:hover .img-zoom img {
+  transform: scale(1.04);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+  /* Scroll reveals render server-side at opacity 0; show them immediately for reduced-motion users. */
+  [data-reveal] {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+}
+
+@keyframes rise {
+  from {
+    opacity: 0;
+    transform: translateY(28px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+@keyframes unveil {
+  from {
+    clip-path: inset(100% 0 0 0);
+    opacity: 0.4;
+  }
+  to {
+    clip-path: inset(0 0 0 0);
+    opacity: 1;
+  }
+}
+@keyframes line-up {
+  from {
+    transform: translateY(105%);
+  }
+  to {
+    transform: none;
+  }
+}
