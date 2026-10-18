@@ -1,0 +1,8 @@
+{
+  "_note": "Fill each slot with an Unsplash photo URL (https://unsplash.com/photos/<id>) then run: node scripts/fetch-images.mjs. Unsplash License: free commercial use, no permission needed; credit is appreciated and recorded in public/images/CREDITS.md.",
+  "hero": "", "cta": "", "about": "", "og": "",
+  "service-strategy": "", "service-operations": "", "service-finance": "", "service-digital": "", "service-international": "", "service-people": "",
+  "project-manufacturing": "", "project-retail": "", "project-logistics": "", "project-family": "",
+  "team-1": "", "team-2": "", "team-3": "", "team-4": "", "team-5": "", "team-6": "",
+  "insight-kpi": "", "insight-markets": "", "insight-governance": ""
+}
