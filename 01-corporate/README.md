@@ -60,7 +60,7 @@ URLs are `/it/...` and `/en/...` and use the same slug in both languages, so the
 Every image lives in `public/images/<slot>.jpg`, and `next/image` serves it as AVIF/WebP at responsive sizes.
 
 - Placeholders: `node scripts/placeholders.mjs` (`--force` regenerates them).
-- Real photos: fill `scripts/images.json` with Unsplash photo URLs and run `node scripts/fetch-images.mjs`. The script crops each photo to its slot and writes `public/images/CREDITS.md`.
+- Real photos: list Unsplash photo IDs in `scripts/images.json` (only free `photo-…` IDs, not `premium_photo-…`), then run `node scripts/fetch-images.mjs`. The script crops each photo to its slot and writes `public/images/CREDITS.md`. If you are behind a proxy, prefix the command with `NODE_USE_ENV_PROXY=1`.
 - Or drop in your own licensed JPGs with the same file names. Recommended sizes are in `scripts/placeholders.mjs`.
 
 ## Forms and connecting a real backend

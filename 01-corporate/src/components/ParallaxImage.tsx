@@ -13,7 +13,7 @@ export function ParallaxImage({ src, alt, sizes, priority, strength = 8, classNa
   const y = useTransform(scrollYProgress, [0, 1], [`-${strength}%`, `${strength}%`]);
 
   return (
-    <div ref={ref} className={`relative overflow-hidden ${className}`}>
+    <div ref={ref} className={`overflow-hidden ${/\babsolute\b/.test(className) ? "" : "relative"} ${className}`}>
       <motion.div style={{ y }} className="absolute inset-[-10%_0]">
         <Image src={src} alt={alt} fill sizes={sizes} priority={priority} className="object-cover" />
       </motion.div>
