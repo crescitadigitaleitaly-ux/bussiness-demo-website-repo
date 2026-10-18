@@ -1,0 +1,176 @@
+@import "tailwindcss";
+
+@theme {
+  --color-paper: #0a1118;
+  --color-surface: #14212b;
+  --color-raised: #1b2b37;
+  --color-ink: #f5f7f8;
+  --color-muted: #aab8c3;
+  --color-accent: #b7e35a;
+  --color-accent-soft: rgb(183 227 90 / 0.12);
+  --color-line: rgb(245 247 248 / 0.1);
+
+  --font-sans: var(--font-geist), ui-sans-serif, system-ui, sans-serif;
+  --font-display: var(--font-sora), ui-sans-serif, system-ui, sans-serif;
+
+  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@layer base {
+  html {
+    -webkit-text-size-adjust: 100%;
+    scroll-padding-top: 6rem;
+    color-scheme: dark;
+  }
+  body {
+    background: var(--color-paper);
+    color: var(--color-ink);
+    font-family: var(--font-sans);
+    text-rendering: optimizeLegibility;
+  }
+  ::selection {
+    background: var(--color-accent);
+    color: var(--color-paper);
+  }
+  :focus-visible {
+    outline: 2px solid var(--color-accent);
+    outline-offset: 3px;
+    border-radius: 4px;
+  }
+}
+
+@utility container-x {
+  @apply mx-auto w-full max-w-[1320px] px-5 sm:px-8 lg:px-12;
+}
+@utility display {
+  @apply font-display font-semibold tracking-[-0.045em] leading-[0.98] text-balance;
+}
+@utility eyebrow {
+  @apply inline-flex items-center gap-2.5 text-[0.75rem] font-medium uppercase tracking-[0.2em] text-accent;
+  &::before {
+    content: "";
+    @apply size-1.5 rounded-full bg-accent shadow-[0_0_12px_2px_rgb(183_227_90/0.7)];
+  }
+}
+@utility lead {
+  @apply text-lg leading-relaxed text-muted sm:text-xl text-pretty;
+}
+@utility card {
+  @apply rounded-[1.75rem] border border-line bg-surface;
+}
+@utility btn {
+  @apply relative inline-flex items-center justify-center gap-2 overflow-hidden rounded-full px-6 py-3.5 text-[0.95rem] font-medium transition-all duration-300 ease-out-expo active:scale-[0.98];
+}
+@utility btn-primary {
+  @apply btn bg-accent text-paper hover:bg-white hover:shadow-[0_10px_40px_-8px_rgb(183_227_90/0.6)];
+}
+@utility btn-ghost {
+  @apply btn border border-line bg-white/[0.03] text-ink backdrop-blur hover:border-white/30 hover:bg-white/[0.08];
+}
+@utility link-underline {
+  @apply bg-[linear-gradient(currentColor,currentColor)] bg-[length:0%_1px] bg-left-bottom bg-no-repeat pb-0.5 transition-[background-size] duration-500 ease-out-expo hover:bg-[length:100%_1px];
+}
+@utility field {
+  @apply w-full rounded-xl border border-line bg-paper px-4 py-3 text-base text-ink placeholder:text-muted/70 transition-colors focus:border-accent focus:outline-none focus:ring-4 focus:ring-accent/15 aria-[invalid=true]:border-red-400;
+}
+@utility label {
+  @apply mb-2 block text-sm font-medium text-ink;
+}
+/* Faint technical grid used behind hero sections. */
+@utility grid-lines {
+  background-image:
+    linear-gradient(rgb(245 247 248 / 0.045) 1px, transparent 1px),
+    linear-gradient(90deg, rgb(245 247 248 / 0.045) 1px, transparent 1px);
+  background-size: 64px 64px;
+}
+
+.img-zoom img {
+  transition: transform 1.2s var(--ease-out-expo);
+}
+.img-zoom:hover img,
+.group:hover .img-zoom img {
+  transform: scale(1.05);
+}
+
+/* Energy flowing along a dashed path. */
+.flow {
+  stroke-dasharray: 4 10;
+  animation: flow 1.2s linear infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+  /* Scroll reveals render server-side at opacity 0; show them immediately for reduced-motion users. */
+  [data-reveal] {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+}
+
+@keyframes rise {
+  from {
+    opacity: 0;
+    transform: translateY(28px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+@keyframes unveil {
+  from {
+    clip-path: inset(100% 0 0 0);
+    opacity: 0.4;
+  }
+  to {
+    clip-path: inset(0 0 0 0);
+    opacity: 1;
+  }
+}
+@keyframes line-up {
+  from {
+    transform: translateY(105%);
+  }
+  to {
+    transform: none;
+  }
+}
+@keyframes settle {
+  from {
+    transform: scale(1.12);
+  }
+  to {
+    transform: scale(1);
+  }
+}
+@keyframes flow {
+  to {
+    stroke-dashoffset: -28;
+  }
+}
+@keyframes pulse-glow {
+  0%,
+  100% {
+    opacity: 0.55;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.9;
+    transform: scale(1.08);
+  }
+}
+@keyframes draw {
+  from {
+    stroke-dashoffset: 1;
+  }
+  to {
+    stroke-dashoffset: 0;
+  }
+}
