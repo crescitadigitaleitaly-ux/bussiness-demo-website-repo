@@ -7,6 +7,7 @@ type Props = HTMLMotionProps<"div"> & { delay?: number; y?: number };
 export function Reveal({ delay = 0, y = 28, children, ...rest }: Props) {
   return (
     <motion.div
+      data-reveal
       initial={{ opacity: 0, y }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "0px 0px -12% 0px" }}
@@ -40,6 +41,7 @@ export function RevealItem({ children, as = "div", ...rest }: HTMLMotionProps<"d
   const C = motion[as] as typeof motion.div;
   return (
     <C
+      data-reveal
       variants={{
         hidden: { opacity: 0, y: 24 },
         show: { opacity: 1, y: 0, transition: { duration: 0.8, ease: [0.16, 1, 0.3, 1] } },

@@ -54,3 +54,12 @@ export function pageMetadata(
     twitter: { card: "summary_large_image", title, description, images: [image] },
   };
 }
+
+/** Page title with the brand appended only while it stays within what search results display (~65 chars). */
+export const withBrand = (title: string, brand: string) => (title.length + brand.length + 3 <= 65 ? `${title} — ${brand}` : title);
+
+/** Joins sentences into a meta description, cut at a word boundary to stay under 155 chars. */
+export function describe(...parts: string[]) {
+  const text = parts.join(" ");
+  return text.length <= 155 ? text : text.slice(0, text.lastIndexOf(" ", 152)) + "…";
+}

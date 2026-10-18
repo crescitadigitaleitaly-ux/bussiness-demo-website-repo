@@ -149,7 +149,7 @@ export const en: typeof it = {
   ],
   servicesPage: {
     meta: {
-      title: "Services — Arvenis Group",
+      title: "Business consulting services — Arvenis Group",
       description: "Strategy, operations, finance, digital, international expansion and organisation: the advisory services of Arvenis Group.",
     },
     eyebrow: "Services",
@@ -287,7 +287,7 @@ export const en: typeof it = {
   ],
   about: {
     meta: {
-      title: "About us — Arvenis Group",
+      title: "About us — Arvenis Group, business advisory",
       description: "The story, values and approach of Arvenis Group, a demo business advisory firm.",
     },
     eyebrow: "About us",
@@ -317,7 +317,7 @@ export const en: typeof it = {
   },
   whyUs: {
     meta: {
-      title: "Why choose us — Arvenis Group",
+      title: "Why choose Arvenis Group — business advisory",
       description: "What sets the Arvenis Group approach apart: operational experience, a transparent method and accountability for results.",
     },
     eyebrow: "Why us",
@@ -345,7 +345,7 @@ export const en: typeof it = {
   },
   team: {
     meta: {
-      title: "Team — Arvenis Group",
+      title: "Our team of advisors — Arvenis Group",
       description: "The people of Arvenis Group: partners and senior consultants with in-house management experience. Demo profiles.",
     },
     eyebrow: "Team",
@@ -365,7 +365,7 @@ export const en: typeof it = {
   },
   insights: {
     meta: {
-      title: "Insights — Arvenis Group",
+      title: "Insights on strategy and growth — Arvenis Group",
       description: "Articles and perspectives on strategy, operations, finance and business growth.",
     },
     eyebrow: "Insights",
@@ -421,7 +421,7 @@ export const en: typeof it = {
   },
   contact: {
     meta: {
-      title: "Contact — Arvenis Group",
+      title: "Contact us — offices in Milan, Turin and London",
       description: "Contact Arvenis Group: offices, details and contact form. Demo contact details.",
     },
     eyebrow: "Contact",

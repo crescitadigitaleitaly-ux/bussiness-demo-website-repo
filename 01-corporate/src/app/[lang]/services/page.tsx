@@ -29,7 +29,7 @@ export default async function Services() {
           <section key={s.slug} id={s.slug} className="grid gap-10 border-t border-line py-16 sm:py-24 lg:grid-cols-12 lg:gap-12">
             <Reveal className={`lg:col-span-5 ${i % 2 ? "lg:order-2 lg:col-start-8" : ""}`}>
               <div className="img-zoom relative aspect-[4/3] overflow-hidden rounded-[1.5rem]">
-                <Image src={s.image} alt="" fill sizes="(min-width:1024px) 40vw, 100vw" className="object-cover" />
+                <Image src={s.image} alt={s.title} fill sizes="(min-width:1024px) 40vw, 100vw" className="object-cover" />
               </div>
             </Reveal>
             <Reveal delay={0.1} className={`lg:col-span-6 ${i % 2 ? "lg:order-1" : "lg:col-start-7"}`}>

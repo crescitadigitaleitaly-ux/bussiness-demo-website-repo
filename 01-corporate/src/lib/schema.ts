@@ -1,5 +1,8 @@
 import { z } from "zod";
 
+// No eval-based fast path: keeps the strict Content-Security-Policy (no 'unsafe-eval') clean.
+z.config({ jitless: true });
+
 // Messages are dictionary keys (form.errors.*) so client and server share one schema.
 const base = {
   name: z.string().trim().min(2, "name").max(120, "name"),

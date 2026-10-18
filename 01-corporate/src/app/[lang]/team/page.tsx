@@ -22,7 +22,7 @@ export default async function Team() {
           {t.members.map((m) => (
             <RevealItem as="li" key={m.name} className="group">
               <div className="img-zoom relative aspect-[4/5] overflow-hidden rounded-[1.25rem] bg-mist">
-                <Image src={m.image} alt="" fill sizes="(min-width:1024px) 30vw, 50vw" className="object-cover grayscale-[35%] transition-[filter] duration-700 group-hover:grayscale-0" />
+                <Image src={m.image} alt={`${m.name}, ${m.role}`} fill sizes="(min-width:1024px) 30vw, 50vw" className="object-cover grayscale-[35%] transition-[filter] duration-700 group-hover:grayscale-0" />
               </div>
               <h2 className="mt-5 text-lg font-medium tracking-tight sm:text-xl">{m.name}</h2>
               <p className="mt-1 text-sm text-muted">{m.role} · {m.area}</p>

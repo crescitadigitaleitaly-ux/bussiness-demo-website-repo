@@ -147,7 +147,7 @@ export const it = {
   ],
   servicesPage: {
     meta: {
-      title: "Servizi — Arvenis Group",
+      title: "Servizi di consulenza aziendale — Arvenis Group",
       description: "Strategia, operations, finanza, digitale, espansione internazionale e organizzazione: i servizi di consulenza di Arvenis Group.",
     },
     eyebrow: "Servizi",
@@ -285,7 +285,7 @@ export const it = {
   ],
   about: {
     meta: {
-      title: "Chi siamo — Arvenis Group",
+      title: "Chi siamo — Arvenis Group, consulenza per le imprese",
       description: "La storia, i valori e l'approccio di Arvenis Group, società di consulenza dimostrativa per imprese.",
     },
     eyebrow: "Chi siamo",
@@ -343,7 +343,7 @@ export const it = {
   },
   team: {
     meta: {
-      title: "Team — Arvenis Group",
+      title: "Il nostro team di consulenti — Arvenis Group",
       description: "Le persone di Arvenis Group: partner e consulenti senior con esperienza in azienda. Profili dimostrativi.",
     },
     eyebrow: "Team",
@@ -363,7 +363,7 @@ export const it = {
   },
   insights: {
     meta: {
-      title: "Insights — Arvenis Group",
+      title: "Insights su strategia e crescita — Arvenis Group",
       description: "Articoli e riflessioni su strategia, operations, finanza e crescita delle imprese.",
     },
     eyebrow: "Insights",
@@ -419,7 +419,7 @@ export const it = {
   },
   contact: {
     meta: {
-      title: "Contatti — Arvenis Group",
+      title: "Contatti e sedi a Milano, Torino e Londra — Arvenis Group",
       description: "Contatta Arvenis Group: sedi, recapiti e modulo di contatto. Recapiti dimostrativi.",
     },
     eyebrow: "Contatti",

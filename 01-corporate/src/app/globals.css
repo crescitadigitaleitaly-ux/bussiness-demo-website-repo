@@ -97,6 +97,11 @@
     transition-duration: 0.01ms !important;
     scroll-behavior: auto !important;
   }
+  /* Scroll reveals render server-side at opacity 0; show them immediately for reduced-motion users. */
+  [data-reveal] {
+    opacity: 1 !important;
+    transform: none !important;
+  }
 }
 
 @keyframes rise {

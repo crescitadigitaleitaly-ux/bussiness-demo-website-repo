@@ -43,13 +43,17 @@ export default async function RootLayout({ children }: LayoutProps<"/[lang]">) {
         <a href="#main" className="sr-only z-[60] rounded-full bg-ink px-5 py-3 text-white focus:not-sr-only focus:fixed focus:left-4 focus:top-4">
           {dict.nav.skip}
         </a>
-        <p className="bg-ink px-4 py-2 text-center text-[0.72rem] tracking-wide text-white/80">{dict.brand.demoBar}</p>
+        <aside aria-label="Demo" className="bg-ink px-4 py-2 text-center text-[0.72rem] tracking-wide text-white/80">
+          <p>{dict.brand.demoBar}</p>
+        </aside>
         <MotionProvider>
           <Header locale={locale} nav={dict.nav} brand={dict.brand.name} />
           <main id="main" className="flex-1">{children}</main>
           <Footer locale={locale} dict={dict} />
         </MotionProvider>
-        <WhatsAppFab label={dict.common.whatsapp} message={dict.common.whatsappMessage} />
+        <aside aria-label={dict.common.whatsapp}>
+          <WhatsAppFab label={dict.common.whatsapp} message={dict.common.whatsappMessage} />
+        </aside>
         <JsonLd
           data={{
             "@context": "https://schema.org",
@@ -59,12 +63,23 @@ export default async function RootLayout({ children }: LayoutProps<"/[lang]">) {
             description: dict.home.meta.description,
             url: `${siteUrl}/${locale}`,
             email: dict.brand.email,
-            logo: `${siteUrl}/icon.svg`,
+            logo: `${siteUrl}/logo.png`,
             image: `${siteUrl}/images/og.jpg`,
             areaServed: ["IT", "EU", "GB"],
             knowsLanguage: ["it", "en"],
             address: { "@type": "PostalAddress", streetAddress: "Via dell'Esempio 12", postalCode: "20121", addressLocality: "Milano", addressCountry: "IT" },
             disambiguatingDescription: "Fictional company used for a website demonstration.",
+          }}
+        />
+        <JsonLd
+          data={{
+            "@context": "https://schema.org",
+            "@type": "WebSite",
+            "@id": `${siteUrl}/#website`,
+            name: dict.brand.name,
+            url: `${siteUrl}/${locale}`,
+            inLanguage: locale,
+            publisher: { "@id": `${siteUrl}/#organization` },
           }}
         />
       </body>

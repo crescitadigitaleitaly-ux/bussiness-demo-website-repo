@@ -3,7 +3,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { ArrowLeft, ArrowUpRight } from "lucide-react";
 import { getPage } from "@/lib/page";
-import { getDictionary, pageMetadata } from "@/lib/i18n";
+import { describe, getDictionary, pageMetadata, withBrand } from "@/lib/i18n";
 import { Reveal } from "@/components/Reveal";
 import { CtaBand } from "@/components/CtaBand";
 
@@ -21,7 +21,7 @@ async function load(params: PageProps<"/[lang]/projects/[slug]">["params"]) {
 
 export async function generateMetadata({ params }: PageProps<"/[lang]/projects/[slug]">) {
   const { locale, project, dict } = await load(params);
-  return pageMetadata(locale, `projects/${project.slug}`, `${project.title} — ${dict.brand.name}`, project.excerpt, project.image);
+  return pageMetadata(locale, `projects/${project.slug}`, withBrand(project.title, dict.brand.name), describe(project.excerpt, project.challenge), project.image);
 }
 
 export default async function ProjectPage({ params }: PageProps<"/[lang]/projects/[slug]">) {
@@ -45,7 +45,7 @@ export default async function ProjectPage({ params }: PageProps<"/[lang]/project
       </header>
       <div className="container-x animate-[unveil_1.3s_.2s_var(--ease-out-expo)_both]">
         <div className="relative aspect-[16/9] overflow-hidden rounded-[1.75rem]">
-          <Image src={project.image} alt="" fill priority sizes="(min-width:1320px) 1224px, 100vw" className="object-cover" />
+          <Image src={project.image} alt={project.title} fill priority sizes="(min-width:1320px) 1224px, 100vw" className="object-cover" />
         </div>
       </div>
 

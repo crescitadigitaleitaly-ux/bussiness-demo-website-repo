@@ -3,7 +3,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { ArrowLeft } from "lucide-react";
 import { getPage } from "@/lib/page";
-import { getDictionary, pageMetadata, siteUrl } from "@/lib/i18n";
+import { describe, getDictionary, pageMetadata, siteUrl, withBrand } from "@/lib/i18n";
 import { JsonLd } from "@/components/JsonLd";
 import { Reveal } from "@/components/Reveal";
 import { CtaBand } from "@/components/CtaBand";
@@ -22,7 +22,7 @@ async function load(params: PageProps<"/[lang]/insights/[slug]">["params"]) {
 
 export async function generateMetadata({ params }: PageProps<"/[lang]/insights/[slug]">) {
   const { locale, article, dict } = await load(params);
-  const meta = pageMetadata(locale, `insights/${article.slug}`, `${article.title} — ${dict.brand.name}`, article.excerpt, article.image);
+  const meta = pageMetadata(locale, `insights/${article.slug}`, withBrand(article.title, dict.brand.name), describe(article.excerpt, article.body[0]), article.image);
   return { ...meta, openGraph: { ...meta.openGraph, type: "article", publishedTime: article.date } };
 }
 
@@ -43,7 +43,7 @@ export default async function ArticlePage({ params }: PageProps<"/[lang]/insight
       </header>
       <div className="container-x animate-[unveil_1.3s_.2s_var(--ease-out-expo)_both]">
         <div className="relative aspect-[21/9] overflow-hidden rounded-[1.75rem]">
-          <Image src={article.image} alt="" fill priority sizes="(min-width:1320px) 1224px, 100vw" className="object-cover" />
+          <Image src={article.image} alt={article.title} fill priority sizes="(min-width:1320px) 1224px, 100vw" className="object-cover" />
         </div>
       </div>
       <div className="container-x max-w-[44rem] space-y-6 py-20 text-lg leading-[1.8] text-ink/90">
@@ -60,10 +60,16 @@ export default async function ArticlePage({ params }: PageProps<"/[lang]/insight
           headline: article.title,
           description: article.excerpt,
           datePublished: article.date,
+          dateModified: article.date,
           inLanguage: locale,
-          image: `${siteUrl}${article.image}`,
-          author: { "@type": "Organization", name: dict.brand.name },
-          publisher: { "@id": `${siteUrl}/#organization` },
+          image: [`${siteUrl}${article.image}`],
+          author: { "@type": "Organization", name: dict.brand.name, url: `${siteUrl}/${locale}` },
+          publisher: {
+            "@type": "Organization",
+            "@id": `${siteUrl}/#organization`,
+            name: dict.brand.name,
+            logo: { "@type": "ImageObject", url: `${siteUrl}/logo.png`, width: 512, height: 512 },
+          },
           mainEntityOfPage: `${siteUrl}/${locale}/insights/${article.slug}`,
         }}
       />

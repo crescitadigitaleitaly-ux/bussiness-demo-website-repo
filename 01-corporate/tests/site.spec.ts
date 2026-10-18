@@ -41,11 +41,11 @@ test("pages render without console errors and without horizontal overflow", asyn
 
 test("language switch keeps the current page", async ({ page }) => {
   await page.goto("/it/services");
-  await page.getByRole("link", { name: "English" }).click();
+  await page.getByRole("link", { name: /English/ }).click();
   await expect(page).toHaveURL(/\/en\/services$/);
   await expect(page.locator("html")).toHaveAttribute("lang", "en");
   await expect(page.getByRole("heading", { level: 1 })).toContainText("Integrated expertise");
-  await page.getByRole("link", { name: "Italiano" }).click();
+  await page.getByRole("link", { name: /Italiano/ }).click();
   await expect(page).toHaveURL(/\/it\/services$/);
 });
 

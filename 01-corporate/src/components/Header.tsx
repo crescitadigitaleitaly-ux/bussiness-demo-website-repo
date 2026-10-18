@@ -157,10 +157,10 @@ function LangSwitch({ locale, rest, label }: { locale: Locale; rest: string; lab
           hrefLang={l}
           lang={l}
           aria-current={l === locale ? "true" : undefined}
-          aria-label={l === "it" ? "Italiano" : "English"}
           className="rounded-full px-2.5 py-1.5 uppercase tracking-wider text-muted transition-colors aria-[current=true]:bg-ink aria-[current=true]:text-white"
         >
           {l}
+          <span className="sr-only"> — {l === "it" ? "Italiano" : "English"}</span>
         </Link>
       ))}
     </div>
