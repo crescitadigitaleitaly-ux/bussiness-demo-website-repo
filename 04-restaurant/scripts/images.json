@@ -1,0 +1,21 @@
+{
+  "_note": "Unsplash photo IDs (https://images.unsplash.com/photo-<id>). Unsplash License: free commercial use. Only use 'photo-' IDs; 'premium_photo-' are Unsplash+ and need a subscription. Run: node scripts/fetch-images.mjs",
+  "hero": "1559339352-11d035aa65de",
+  "og": "1559339352-11d035aa65de",
+  "coast": "1499678329028-101435549a4e",
+  "village": "1516483638261-f4dbaf036963",
+  "catch": "1615141982883-c7ad0e69fd62",
+  "chef": "1577219491135-ce391730fb2c",
+  "sala": "1550966871-3ed3cdb5ed0c",
+  "table": "1599458252573-56ae36120de1",
+  "aperitivo": "1560512823-829485b8bf24",
+  "wine": "1510812431401-41d2bd2722f3",
+  "dish-gamberi": "1559737558-2f5a35f4523b",
+  "dish-crudo": "1625944525533-473f1a3d54e7",
+  "dish-polpo": "1606850780554-b55ea4dd0b70",
+  "dish-vongole": "1595295333158-4742f28fbd85",
+  "dish-scoglio": "1563379926898-05f4575a45d8",
+  "dish-pesce": "1580476262798-bddd9f4b7369",
+  "dish-dolce": "1488477181946-6428a0291777",
+  "prawns-raw": "1565680018434-b513d5e5fd47"
+}

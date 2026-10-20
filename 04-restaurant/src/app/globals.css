@@ -1,0 +1,154 @@
+@import "tailwindcss";
+
+@theme {
+  --color-mist: #e9efee;
+  --color-surface: #fbfcfb;
+  --color-ink: #0f2a3a;
+  --color-muted: #48606e;
+  --color-deep: #0b1f2b;
+  --color-amber: #93600f; /* accent text on light backgrounds (≥4.5:1 on mist) */
+  --color-sun: #d9a03a; /* accent on dark backgrounds and in graphics */
+  --color-sand: #dccdb3;
+  --color-line: rgb(15 42 58 / 0.14);
+
+  --font-sans: var(--font-figtree), ui-sans-serif, system-ui, sans-serif;
+  --font-display: var(--font-caslon-display), "Libre Caslon Text", Georgia, serif;
+  --font-serif: var(--font-caslon-text), Georgia, serif;
+
+  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@layer base {
+  html {
+    -webkit-text-size-adjust: 100%;
+    scroll-padding-top: 6rem;
+  }
+  body {
+    background: var(--color-mist);
+    color: var(--color-ink);
+    font-family: var(--font-sans);
+    text-rendering: optimizeLegibility;
+  }
+  ::selection {
+    background: var(--color-ink);
+    color: var(--color-mist);
+  }
+  :focus-visible {
+    outline: 2px solid var(--color-ink);
+    outline-offset: 3px;
+    border-radius: 2px;
+  }
+}
+
+@utility container-x {
+  @apply mx-auto w-full max-w-[1320px] px-5 sm:px-8 lg:px-12;
+}
+@utility display {
+  @apply font-display font-normal tracking-[-0.015em] leading-[1.02] text-balance;
+}
+/* The italic accent inside headlines: Caslon Text italic, set slightly smaller to match the display's x-height. */
+@utility accent {
+  @apply font-serif italic text-amber;
+  font-size: 0.94em;
+}
+/* Small caps-style label with a short rule, like a nautical chart legend. */
+@utility eyebrow {
+  @apply inline-flex items-center gap-3 text-[0.72rem] font-semibold uppercase tracking-[0.22em] text-muted;
+  &::before {
+    content: "";
+    @apply h-px w-7 bg-current opacity-60;
+  }
+}
+@utility lead {
+  @apply text-lg leading-relaxed text-muted sm:text-[1.2rem] text-pretty;
+}
+@utility btn {
+  @apply relative inline-flex min-h-12 items-center justify-center gap-2.5 px-6 py-3 text-[0.95rem] font-semibold tracking-[0.01em] transition-[background-color,color,border-color,transform] duration-300 ease-out-expo active:scale-[0.98];
+}
+@utility btn-primary {
+  @apply btn bg-ink text-mist hover:bg-deep;
+}
+@utility btn-ghost {
+  @apply btn border border-ink/70 text-ink hover:border-ink hover:bg-ink hover:text-mist;
+}
+@utility btn-light {
+  @apply btn bg-mist text-ink hover:bg-white;
+}
+@utility link-underline {
+  @apply bg-[linear-gradient(currentColor,currentColor)] bg-[length:0%_1px] bg-left-bottom bg-no-repeat pb-0.5 transition-[background-size] duration-500 ease-out-expo hover:bg-[length:100%_1px];
+}
+@utility field {
+  @apply w-full border border-line bg-surface px-4 py-3 text-base text-ink placeholder:text-muted/70 transition-colors focus:border-ink focus:outline-none focus:ring-4 focus:ring-ink/10 aria-[invalid=true]:border-red-700;
+}
+@utility label {
+  @apply mb-2 block text-sm font-semibold text-ink;
+}
+@utility tabular {
+  font-variant-numeric: tabular-nums;
+}
+
+.img-zoom img {
+  transition: transform 1.4s var(--ease-out-expo);
+}
+.img-zoom:hover img,
+.group:hover .img-zoom img {
+  transform: scale(1.04);
+}
+
+/* The wave rule: drawn once on load, then still. */
+.wave path {
+  stroke-dasharray: 1;
+  stroke-dashoffset: 1;
+  animation: draw 2.2s var(--ease-out-expo) 0.6s forwards;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+  /* Scroll reveals render server-side at opacity 0; show them immediately for reduced-motion users. */
+  [data-reveal] {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+  .wave path {
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes rise {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+@keyframes unveil {
+  from {
+    clip-path: inset(0 0 100% 0);
+  }
+  to {
+    clip-path: inset(0 0 0 0);
+  }
+}
+@keyframes settle {
+  from {
+    transform: scale(1.1);
+  }
+  to {
+    transform: scale(1);
+  }
+}
+@keyframes draw {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
