@@ -26,7 +26,7 @@ Last updated: October 2026.
 | `03-solar` | Aurevo Energia (Verona) | Solar installer, dark (#0A1118 / #14212B / lime #B7E35A) | https://solar-demo.crescitadigitaleitalia.com | `solar-demo` (prj_oN5En7y3q2UhzREI4V6MK8Oo67aE) |
 | `04-restaurant` | Lanterna (Camogli) | Seafood restaurant, light sea-mist (#E9EFEE / navy #0F2A3A / amber #93600F, sun #D9A03A on dark) | https://restaurant-demo.crescitadigitaleitalia.com | `restaurant-demo` (prj_y0InE6pP2bdFzo32k9Z41z1jz0Dm) |
 
-Sites 01–03 are presented on the agency site's portfolio page (04 still to be added): https://www.crescitadigitaleitalia.com/#/portfolio (repo `crescitadigitaleitaly-ux/My-Portfolio-web`, see its own CLAUDE.md).
+All four are presented on the agency site's portfolio page: https://www.crescitadigitaleitalia.com/#/portfolio (repo `crescitadigitaleitaly-ux/My-Portfolio-web`, see its own CLAUDE.md).
 
 ### Deployment facts
 
@@ -106,7 +106,6 @@ node scripts/screenshots.mjs                 # full-page shots at 1440/768/375 �
 - Forms are demo-only. For a real client, connect Resend (env `RESEND_API_KEY` plus an inbox variable) or a CRM webhook, and add rate limiting or Turnstile.
 - The WhatsApp number and the privacy/cookie texts are placeholders.
 - Ideas the user may ask for next:
-  - add 04-restaurant to the agency portfolio page;
   - more sector demos (beauty, real estate, automotive, or the other restaurant directions A/B/D — the agency site lists these industries);
   - turning a demo into a real client site (replace content, images, logo, palette, JSON-LD and remove the demo labels; see each README "Replacing the demo branding");
   - sales material (one-page PDF or deck per sector).
