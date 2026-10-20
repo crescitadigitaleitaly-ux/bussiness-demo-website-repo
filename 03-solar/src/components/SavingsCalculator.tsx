@@ -68,7 +68,7 @@ export function SavingsCalculator({ t, locale, heading: H = "h3" }: { t: T; loca
             value={bill}
             onChange={(e) => setBill(Number(e.target.value))}
             aria-valuetext={eur(bill)}
-            className="mt-3 w-full accent-[var(--color-accent)]"
+            className="mt-3 h-6 w-full cursor-pointer accent-[var(--color-accent)]"
           />
           <div className="mt-1 flex justify-between text-xs text-muted"><span>{eur(min)}</span><span>{eur(max)}</span></div>
         </div>

@@ -193,7 +193,7 @@ export default async function Home() {
         <Reveal>
           <SavingsCalculator t={savings.calc} locale={locale} />
         </Reveal>
-        <Link href={`/${locale}/savings#assumptions`} className="link-underline mt-5 inline-flex items-center gap-2 text-sm text-muted hover:text-ink">
+        <Link href={`/${locale}/savings#assumptions`} className="link-underline mt-5 inline-flex min-h-6 items-center gap-2 text-sm text-muted hover:text-ink">
           {savings.assumptionsTitle} <ArrowUpRight className="size-4" aria-hidden />
         </Link>
       </section>

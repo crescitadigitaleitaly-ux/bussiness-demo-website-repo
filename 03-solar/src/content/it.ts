@@ -46,7 +46,7 @@ export const it = {
     meta: {
       title: "Aurevo Energia — Fotovoltaico e accumulo a Verona",
       description:
-        "Impianti fotovoltaici per case e aziende, batterie di accumulo e ricarica per auto elettriche. Sopralluogo e preventivo. Sito dimostrativo con contenuti fittizi.",
+        "Impianti fotovoltaici per case e aziende, accumulo e ricarica per auto elettriche. Sopralluogo e preventivo. Sito dimostrativo con contenuti fittizi.",
     },
     hero: {
       eyebrow: "Fotovoltaico · Accumulo · Ricarica EV",

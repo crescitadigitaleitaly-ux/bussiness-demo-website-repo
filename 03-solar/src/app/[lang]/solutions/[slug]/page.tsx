@@ -39,7 +39,7 @@ export default async function SolutionPage({ params }: PageProps<"/[lang]/soluti
         <div aria-hidden className="absolute inset-0 -z-10 bg-gradient-to-r from-paper via-paper/85 to-paper/30" />
         <div aria-hidden className="absolute inset-0 -z-10 bg-gradient-to-t from-paper to-transparent" />
         <div className="container-x pb-20 pt-12 sm:pb-28 sm:pt-16">
-          <Link href={`/${locale}/solutions`} className="inline-flex items-center gap-2 text-sm text-muted transition-colors hover:text-ink">
+          <Link href={`/${locale}/solutions`} className="inline-flex min-h-6 items-center gap-2 text-sm text-muted transition-colors hover:text-ink">
             <ArrowLeft className="size-4" aria-hidden /> {dict.common.backTo} {dict.nav.solutions}
           </Link>
           <span className="mt-12 grid size-14 place-items-center rounded-2xl bg-accent text-paper animate-[rise_.9s_var(--ease-out-expo)_both]">
@@ -107,7 +107,6 @@ export default async function SolutionPage({ params }: PageProps<"/[lang]/soluti
           name: s.title,
           description: s.intro,
           serviceType: s.title,
-          inLanguage: locale,
           url: `${siteUrl}/${locale}/solutions/${s.slug}`,
           areaServed: ["Veneto", "Lombardia"],
           provider: { "@id": `${siteUrl}/#organization` },

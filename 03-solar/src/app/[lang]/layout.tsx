@@ -63,6 +63,7 @@ export default async function RootLayout({ children }: LayoutProps<"/[lang]">) {
             description: dict.home.meta.description,
             url: `${siteUrl}/${locale}`,
             email: dict.brand.email,
+            telephone: dict.brand.phone.replace(/\s/g, ""),
             logo: `${siteUrl}/logo.png`,
             image: `${siteUrl}/images/og.jpg`,
             knowsLanguage: ["it", "en"],
