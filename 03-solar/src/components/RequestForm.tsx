@@ -14,7 +14,7 @@ type Props = {
   t: Dictionary["form"];
   kind: "contact" | "quote";
   /** Pre-filled values, e.g. when arriving from the savings calculator. */
-  defaults?: { property?: string; battery?: string };
+  defaults?: { property?: string; battery?: string; bill?: string };
 };
 
 type Status = "idle" | "success" | "error";
@@ -31,7 +31,7 @@ export function RequestForm({ locale, t, kind, defaults = {} }: Props) {
     formState: { errors, isSubmitting },
   } = useForm<RequestInput>({
     resolver: zodResolver(kind === "contact" ? contactSchema : quoteSchema),
-    defaultValues: { kind, startedAt: 0, property: defaults.property ?? "", bill: "", roof: "", battery: defaults.battery } as Partial<RequestInput>,
+    defaultValues: { kind, startedAt: 0, property: defaults.property ?? "", bill: defaults.bill ?? "", roof: "", battery: defaults.battery } as Partial<RequestInput>,
     shouldFocusError: true,
   });
 

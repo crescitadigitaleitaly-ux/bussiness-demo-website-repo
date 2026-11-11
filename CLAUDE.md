@@ -63,7 +63,7 @@ All four are presented on the agency site's portfolio page: https://www.crescita
     - Three booking paths (`BookingOptions`): native form, WhatsApp, TheFork (`NEXT_PUBLIC_THEFORK_URL`).
     - `MobileActionBar` is a sticky Prenota / Chiama / WhatsApp bar on phones.
     - Fonts: Libre Caslon Display, Libre Caslon Text italic and Figtree.
-  - **03-solar:** `src/lib/savings.ts` is the illustrative savings model. Its assumptions must stay in sync with `savings.assumptions` in both content files. The calculator links to `/quote?property=home|business&battery=yes|no`, which pre-fills the quote form. Also: filterable `ProjectGallery`, animated `EnergyFlow` SVG, quote form (property, bill range, location, roof, battery interest).
+  - **03-solar:** `src/lib/savings.ts` is the illustrative savings model. Its assumptions must stay in sync with `savings.assumptions` in both content files. The calculator links to `/quote?property=home|business&battery=yes|no&bill=<euro>`, which pre-fills the quote form (property, battery interest and the matching bill range; limits in `QuoteForm.tsx#billLimits` must match `form.bills`). Also: filterable `ProjectGallery`, animated `EnergyFlow` SVG, quote form (property, bill range, location, roof, battery interest).
 
 ## Gotchas learned the hard way (do not repeat)
 

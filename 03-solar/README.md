@@ -53,7 +53,7 @@ URLs are `/it/...` and `/en/...` and use the same slug in both languages, so the
 
 `src/lib/savings.ts` holds the model. It works out a suggested system size from the monthly bill, then yearly output, a savings range, a payback range and CO₂ avoided.
 The `assumptions` object there and the list in `savings.assumptions` (in both content files) must stay in sync: if you change a number, update the text too.
-The calculator runs entirely in the browser and sends no data. Its "Request a quote" link pre-fills the property type and battery interest in the quote form (`/quote?property=home&battery=yes`).
+The calculator runs entirely in the browser and sends no data. Its "Request a quote" link pre-fills the property type, battery interest and bill range in the quote form (`/quote?property=home&battery=yes&bill=150`).
 
 ## Replacing the demo branding
 

@@ -121,9 +121,10 @@ test("savings calculator updates and pre-fills the quote form", async ({ page })
   await expect(page.getByText(/Non-binding estimate/)).toBeVisible();
 
   await page.getByRole("link", { name: "Request a quote with these details" }).click();
-  await expect(page).toHaveURL(/\/en\/quote\?property=business&battery=yes$/);
+  await expect(page).toHaveURL(/\/en\/quote\?property=business&battery=yes&bill=1500$/);
   await expect(page.getByLabel("Property type", { exact: true })).toHaveValue("Business / warehouse");
   await expect(page.getByRole("radio", { name: "Yes" })).toBeChecked();
+  await expect(page.getByLabel("Monthly electricity bill (approx.)")).toHaveValue("Over €1,000");
 });
 
 test("project gallery filters by category", async ({ page }) => {

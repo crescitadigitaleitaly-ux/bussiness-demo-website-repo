@@ -100,7 +100,7 @@ export function SavingsCalculator({ t, locale, heading: H = "h3" }: { t: T; loca
           <Info className="mt-0.5 size-4 shrink-0 text-accent" aria-hidden />
           {t.disclaimer}
         </p>
-        <Link href={`/${locale}/quote?property=${kind}&battery=${battery ? "yes" : "no"}`} className="btn-primary group relative mt-8 w-full sm:w-auto">
+        <Link href={`/${locale}/quote?property=${kind}&battery=${battery ? "yes" : "no"}&bill=${bill}`} className="btn-primary group relative mt-8 w-full sm:w-auto">
           {t.cta}
           <ArrowRight className="size-4 transition-transform duration-300 group-hover:translate-x-1" aria-hidden />
         </Link>
