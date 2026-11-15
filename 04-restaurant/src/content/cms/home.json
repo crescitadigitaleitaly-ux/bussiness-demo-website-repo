@@ -1,0 +1,30 @@
+{
+  "hero": {
+    "titleA": {
+      "it": "Quello che il mare",
+      "en": "Whatever the sea"
+    },
+    "titleAccent": {
+      "it": "ha portato",
+      "en": "brought in"
+    },
+    "titleB": {
+      "it": "stamattina.",
+      "en": "this morning."
+    },
+    "lede": {
+      "it": "Cucina di mare sulla passeggiata di Camogli. Il menu segue le barche: cambia ogni giorno, a volte ogni ora.",
+      "en": "Seafood on the seafront of Camogli. The menu follows the boats: it changes every day, sometimes every hour."
+    }
+  },
+  "sections": {
+    "catchBoard": true,
+    "facts": true,
+    "kitchen": true,
+    "signature": true,
+    "quote": true,
+    "booking": true,
+    "reviews": true,
+    "visit": true
+  }
+}

@@ -1,0 +1,540 @@
+{
+  "sections": [
+    {
+      "id": "crudi",
+      "title": {
+        "it": "Crudi",
+        "en": "Crudo"
+      },
+      "note": {
+        "it": "",
+        "en": ""
+      },
+      "items": [
+        {
+          "name": {
+            "it": "Gamberi rossi di Santa Margherita",
+            "en": "Red prawns from Santa Margherita"
+          },
+          "desc": {
+            "it": "Olio extravergine, limone, sale di Trapani",
+            "en": "Extra-virgin olive oil, lemon, Trapani salt"
+          },
+          "price": "24",
+          "unit": "",
+          "allergens": [
+            2
+          ],
+          "tags": [
+            "raw",
+            "gf"
+          ]
+        },
+        {
+          "name": {
+            "it": "Tartare di tonno",
+            "en": "Tuna tartare"
+          },
+          "desc": {
+            "it": "Avocado, uova di salmone, lime",
+            "en": "Avocado, salmon roe, lime"
+          },
+          "price": "19",
+          "unit": "",
+          "allergens": [
+            4
+          ],
+          "tags": [
+            "raw",
+            "gf"
+          ]
+        },
+        {
+          "name": {
+            "it": "Carpaccio di pesce spada",
+            "en": "Swordfish carpaccio"
+          },
+          "desc": {
+            "it": "Agrumi, finocchio, pepe rosa",
+            "en": "Citrus, fennel, pink pepper"
+          },
+          "price": "17",
+          "unit": "",
+          "allergens": [
+            4
+          ],
+          "tags": [
+            "raw",
+            "gf"
+          ]
+        },
+        {
+          "name": {
+            "it": "Ostriche Fine de Claire",
+            "en": "Fine de Claire oysters"
+          },
+          "desc": {
+            "it": "Al pezzo, con limone e mignonette",
+            "en": "Per piece, with lemon and mignonette"
+          },
+          "price": "4.50",
+          "unit": "each",
+          "allergens": [
+            14,
+            12
+          ],
+          "tags": [
+            "raw",
+            "gf"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "antipasti",
+      "title": {
+        "it": "Antipasti",
+        "en": "Starters"
+      },
+      "note": {
+        "it": "",
+        "en": ""
+      },
+      "items": [
+        {
+          "name": {
+            "it": "Acciughe del golfo fritte",
+            "en": "Fried anchovies from the gulf"
+          },
+          "desc": {
+            "it": "Pastella leggera, limone",
+            "en": "Light batter, lemon"
+          },
+          "price": "14",
+          "unit": "",
+          "allergens": [
+            1,
+            4
+          ],
+          "tags": []
+        },
+        {
+          "name": {
+            "it": "Polpo arrostito",
+            "en": "Roasted octopus"
+          },
+          "desc": {
+            "it": "Patate schiacciate, olive taggiasche",
+            "en": "Crushed potatoes, Taggiasca olives"
+          },
+          "price": "18",
+          "unit": "",
+          "allergens": [
+            14
+          ],
+          "tags": [
+            "gf"
+          ]
+        },
+        {
+          "name": {
+            "it": "Insalata di mare tiepida",
+            "en": "Warm seafood salad"
+          },
+          "desc": {
+            "it": "Seppie, gamberi, cozze, sedano croccante",
+            "en": "Cuttlefish, prawns, mussels, crunchy celery"
+          },
+          "price": "18",
+          "unit": "",
+          "allergens": [
+            2,
+            9,
+            14
+          ],
+          "tags": [
+            "gf"
+          ]
+        },
+        {
+          "name": {
+            "it": "Torta di verdure ligure",
+            "en": "Ligurian vegetable pie"
+          },
+          "desc": {
+            "it": "Bietole, borragine, prescinsêua",
+            "en": "Chard, borage, prescinsêua cheese"
+          },
+          "price": "10",
+          "unit": "",
+          "allergens": [
+            1,
+            3,
+            7
+          ],
+          "tags": [
+            "veg"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "primi",
+      "title": {
+        "it": "Primi",
+        "en": "Pasta & risotto"
+      },
+      "note": {
+        "it": "Pasta fresca fatta ogni mattina",
+        "en": "Fresh pasta made every morning"
+      },
+      "items": [
+        {
+          "name": {
+            "it": "Spaghetti alle vongole veraci",
+            "en": "Spaghetti with clams"
+          },
+          "desc": {
+            "it": "Prezzemolo, aglio, peperoncino",
+            "en": "Parsley, garlic, chilli"
+          },
+          "price": "19",
+          "unit": "",
+          "allergens": [
+            1,
+            14
+          ],
+          "tags": []
+        },
+        {
+          "name": {
+            "it": "Linguine allo scoglio",
+            "en": "Linguine allo scoglio"
+          },
+          "desc": {
+            "it": "Cozze, vongole, gamberi, pomodorini",
+            "en": "Mussels, clams, prawns, cherry tomatoes"
+          },
+          "price": "24",
+          "unit": "",
+          "allergens": [
+            1,
+            2,
+            14
+          ],
+          "tags": []
+        },
+        {
+          "name": {
+            "it": "Risotto al nero di seppia",
+            "en": "Cuttlefish-ink risotto"
+          },
+          "desc": {
+            "it": "Seppie del golfo, limone",
+            "en": "Cuttlefish from the gulf, lemon"
+          },
+          "price": "20",
+          "unit": "",
+          "allergens": [
+            7,
+            12,
+            14
+          ],
+          "tags": [
+            "gf"
+          ]
+        },
+        {
+          "name": {
+            "it": "Trofie al pesto genovese",
+            "en": "Trofie with Genoese pesto"
+          },
+          "desc": {
+            "it": "Basilico di Prà DOP, patate, fagiolini",
+            "en": "Basilico di Prà DOP, potatoes, green beans"
+          },
+          "price": "14",
+          "unit": "",
+          "allergens": [
+            1,
+            7,
+            8
+          ],
+          "tags": [
+            "veg"
+          ]
+        },
+        {
+          "name": {
+            "it": "Pansoti in salsa di noci",
+            "en": "Pansoti with walnut sauce"
+          },
+          "desc": {
+            "it": "Ripieno di erbe selvatiche",
+            "en": "Filled with wild herbs"
+          },
+          "price": "15",
+          "unit": "",
+          "allergens": [
+            1,
+            3,
+            7,
+            8
+          ],
+          "tags": [
+            "veg"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "pescato",
+      "title": {
+        "it": "Pescato al peso",
+        "en": "Fish by weight"
+      },
+      "note": {
+        "it": "Al forno alla ligure, alla griglia o al sale. Prezzo a crudo, all'etto.",
+        "en": "Baked Ligurian-style, grilled or salt-crusted. Priced per 100 g, before cooking."
+      },
+      "items": [
+        {
+          "name": {
+            "it": "Pesce San Pietro",
+            "en": "John Dory"
+          },
+          "desc": {
+            "it": "Pescato locale",
+            "en": "Local catch"
+          },
+          "price": "6.50",
+          "unit": "hg",
+          "allergens": [
+            4
+          ],
+          "tags": [
+            "gf"
+          ]
+        },
+        {
+          "name": {
+            "it": "Branzino di amo",
+            "en": "Line-caught sea bass"
+          },
+          "desc": {
+            "it": "Pescato locale",
+            "en": "Local catch"
+          },
+          "price": "7.00",
+          "unit": "hg",
+          "allergens": [
+            4
+          ],
+          "tags": [
+            "gf"
+          ]
+        },
+        {
+          "name": {
+            "it": "Gamberi rossi alla griglia",
+            "en": "Grilled red prawns"
+          },
+          "desc": {
+            "it": "Santa Margherita Ligure",
+            "en": "Santa Margherita Ligure"
+          },
+          "price": "9.00",
+          "unit": "hg",
+          "allergens": [
+            2
+          ],
+          "tags": [
+            "gf"
+          ]
+        },
+        {
+          "name": {
+            "it": "Scampi *",
+            "en": "Langoustines *"
+          },
+          "desc": {
+            "it": "Secondo disponibilità",
+            "en": "When available"
+          },
+          "price": "10.00",
+          "unit": "hg",
+          "allergens": [
+            2
+          ],
+          "tags": [
+            "gf"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "secondi",
+      "title": {
+        "it": "Secondi",
+        "en": "Mains"
+      },
+      "note": {
+        "it": "",
+        "en": ""
+      },
+      "items": [
+        {
+          "name": {
+            "it": "Fritto misto del golfo",
+            "en": "Mixed fry from the gulf"
+          },
+          "desc": {
+            "it": "Calamari, gamberi, acciughe, verdure",
+            "en": "Squid, prawns, anchovies, vegetables"
+          },
+          "price": "22",
+          "unit": "",
+          "allergens": [
+            1,
+            2,
+            4,
+            14
+          ],
+          "tags": []
+        },
+        {
+          "name": {
+            "it": "Filetto di orata",
+            "en": "Sea bream fillet"
+          },
+          "desc": {
+            "it": "Carciofi, limone, timo",
+            "en": "Artichokes, lemon, thyme"
+          },
+          "price": "24",
+          "unit": "",
+          "allergens": [
+            4
+          ],
+          "tags": [
+            "gf"
+          ]
+        },
+        {
+          "name": {
+            "it": "Seppie in zimino",
+            "en": "Cuttlefish in zimino"
+          },
+          "desc": {
+            "it": "Bietole, pomodoro, crostone",
+            "en": "Chard, tomato, toasted bread"
+          },
+          "price": "19",
+          "unit": "",
+          "allergens": [
+            1,
+            9,
+            14
+          ],
+          "tags": []
+        },
+        {
+          "name": {
+            "it": "Coniglio alla ligure",
+            "en": "Ligurian-style rabbit"
+          },
+          "desc": {
+            "it": "Per chi non mangia pesce: olive, pinoli, rosmarino",
+            "en": "For non-fish eaters: olives, pine nuts, rosemary"
+          },
+          "price": "20",
+          "unit": "",
+          "allergens": [
+            8,
+            9,
+            12
+          ],
+          "tags": [
+            "gf"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "dolci",
+      "title": {
+        "it": "Dolci",
+        "en": "Desserts"
+      },
+      "note": {
+        "it": "",
+        "en": ""
+      },
+      "items": [
+        {
+          "name": {
+            "it": "Panna cotta al basilico",
+            "en": "Basil panna cotta"
+          },
+          "desc": {
+            "it": "Fragole e menta",
+            "en": "Strawberries and mint"
+          },
+          "price": "7",
+          "unit": "",
+          "allergens": [
+            7
+          ],
+          "tags": [
+            "gf",
+            "veg"
+          ]
+        },
+        {
+          "name": {
+            "it": "Sbrisolona e zabaione",
+            "en": "Sbrisolona with zabaione"
+          },
+          "desc": {
+            "it": "Al Marsala",
+            "en": "Made with Marsala"
+          },
+          "price": "8",
+          "unit": "",
+          "allergens": [
+            1,
+            3,
+            7,
+            8,
+            12
+          ],
+          "tags": [
+            "veg"
+          ]
+        },
+        {
+          "name": {
+            "it": "Pandolce genovese",
+            "en": "Genoese pandolce"
+          },
+          "desc": {
+            "it": "Con un bicchiere di passito",
+            "en": "With a glass of passito"
+          },
+          "price": "9",
+          "unit": "",
+          "allergens": [
+            1,
+            3,
+            7,
+            8,
+            12
+          ],
+          "tags": [
+            "veg"
+          ]
+        }
+      ]
+    }
+  ]
+}

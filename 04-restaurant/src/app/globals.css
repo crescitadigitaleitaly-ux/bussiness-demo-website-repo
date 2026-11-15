@@ -152,3 +152,20 @@
     stroke-dashoffset: 0;
   }
 }
+
+/* ---------- Admin panel (/admin) ---------- */
+@utility admin-input {
+  @apply block min-h-11 w-full rounded-md border border-ink/20 bg-white px-3 py-2 text-[0.95rem] text-ink outline-none transition-colors placeholder:text-muted/70 focus:border-ink focus:ring-2 focus:ring-ink/15;
+}
+@utility admin-btn {
+  @apply inline-flex min-h-11 cursor-pointer items-center justify-center gap-2 rounded-md border border-ink/20 bg-white px-4 text-sm font-semibold text-ink transition-colors hover:border-ink disabled:cursor-not-allowed disabled:opacity-50;
+}
+@utility admin-btn-primary {
+  @apply inline-flex min-h-11 cursor-pointer items-center justify-center gap-2 rounded-md bg-ink px-5 text-sm font-semibold text-mist transition-colors hover:bg-deep disabled:cursor-not-allowed disabled:opacity-50;
+}
+@utility admin-icon-btn {
+  @apply grid size-10 cursor-pointer place-items-center rounded-md text-muted transition-colors hover:bg-mist hover:text-ink disabled:cursor-not-allowed disabled:opacity-30;
+}
+@utility admin-card {
+  @apply rounded-xl border border-line bg-surface p-5 sm:p-6;
+}

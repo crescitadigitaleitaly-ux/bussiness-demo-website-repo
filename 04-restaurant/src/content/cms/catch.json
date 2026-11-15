@@ -1,0 +1,37 @@
+{
+  "updatedAt": "11:40",
+  "items": [
+    {
+      "name": {
+        "it": "Gamberi rossi di Santa Margherita",
+        "en": "Red prawns from Santa Margherita"
+      },
+      "price": "9.00",
+      "byWeight": true
+    },
+    {
+      "name": {
+        "it": "Pesce San Pietro",
+        "en": "John Dory"
+      },
+      "price": "6.50",
+      "byWeight": true
+    },
+    {
+      "name": {
+        "it": "Branzino di amo",
+        "en": "Line-caught sea bass"
+      },
+      "price": "7.00",
+      "byWeight": true
+    },
+    {
+      "name": {
+        "it": "Acciughe del golfo, fritte",
+        "en": "Fried anchovies from the gulf"
+      },
+      "price": "14",
+      "byWeight": false
+    }
+  ]
+}

@@ -6,8 +6,9 @@ export const locales = ["it", "en"] as const;
 export type Locale = (typeof locales)[number];
 export const defaultLocale: Locale = "it";
 
-export const hasLocale = (value: string): value is Locale =>
-  (locales as readonly string[]).includes(value);
+// `lang()` can be undefined now that /admin has its own root layout without the [lang] segment.
+export const hasLocale = (value: string | undefined): value is Locale =>
+  value !== undefined && (locales as readonly string[]).includes(value);
 
 const dictionaries = { it, en };
 export type Dictionary = typeof it;

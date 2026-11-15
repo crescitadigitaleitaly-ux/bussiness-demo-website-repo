@@ -1,3 +1,4 @@
+import { catchItems, catchUpdated, heroText, hoursList, menuSections } from "@/lib/cms/content";
 // Tutti i contenuti sono fittizi: ristorante, persone, recensioni e recapiti sono dimostrativi.
 // Prezzi e piatti sono esempi realistici, non un'offerta commerciale.
 export const it = {
@@ -14,10 +15,7 @@ export const it = {
     phoneNote: "numero dimostrativo",
     email: "info@lanterna.example",
     coords: "44°20′N · 9°09′E",
-    hours: [
-      { days: "Martedì – Domenica", time: "12:30 – 14:30 · 19:30 – 22:30" },
-      { days: "Lunedì", time: "Chiuso" },
-    ],
+    hours: hoursList("it"),
     season: "Terrazza aperta da aprile a ottobre",
   },
   nav: {
@@ -61,24 +59,16 @@ export const it = {
         "Cucina di mare sulla passeggiata di Camogli: pescato del giorno, crudi e terrazza sul mare. Prenota online, su WhatsApp o su TheFork. Sito dimostrativo.",
     },
     hero: {
-      titleA: "Quello che il mare",
-      titleAccent: "ha portato",
-      titleB: "stamattina.",
-      lede: "Cucina di mare sulla passeggiata di Camogli. Il menu segue le barche: cambia ogni giorno, a volte ogni ora.",
+      ...heroText("it"),
       primary: "Prenota un tavolo",
       secondary: "Vedi il menu",
       imageAlt: "Terrazza del ristorante affacciata sul mare al tramonto",
     },
     catch: {
       title: "Pescato di oggi",
-      updated: "Aggiornato alle 11:40",
+      updated: catchUpdated("it"),
       note: "Prezzi al peso, a crudo. Il pesce viene pesato davanti a te.",
-      items: [
-        { name: "Gamberi rossi di Santa Margherita", price: "9,00", unit: "hg" },
-        { name: "Pesce San Pietro", price: "6,50", unit: "hg" },
-        { name: "Branzino di amo", price: "7,00", unit: "hg" },
-        { name: "Acciughe del golfo, fritte", price: "14", unit: "" },
-      ],
+      items: catchItems("it"),
     },
     facts: [
       { title: "Terrazza sul mare", text: "40 coperti all'aperto, da aprile a ottobre." },
@@ -151,74 +141,7 @@ export const it = {
       "Cereali con glutine", "Crostacei", "Uova", "Pesce", "Arachidi", "Soia", "Latte",
       "Frutta a guscio", "Sedano", "Senape", "Sesamo", "Solfiti", "Lupini", "Molluschi",
     ],
-    sections: [
-      {
-        id: "crudi",
-        title: "Crudi",
-        note: "",
-        items: [
-          { name: "Gamberi rossi di Santa Margherita", desc: "Olio extravergine, limone, sale di Trapani", price: "24", allergens: [2], tags: ["raw", "gf"] },
-          { name: "Tartare di tonno", desc: "Avocado, uova di salmone, lime", price: "19", allergens: [4], tags: ["raw", "gf"] },
-          { name: "Carpaccio di pesce spada", desc: "Agrumi, finocchio, pepe rosa", price: "17", allergens: [4], tags: ["raw", "gf"] },
-          { name: "Ostriche Fine de Claire", desc: "Al pezzo, con limone e mignonette", price: "4,50 cad.", allergens: [14, 12], tags: ["raw", "gf"] },
-        ],
-      },
-      {
-        id: "antipasti",
-        title: "Antipasti",
-        note: "",
-        items: [
-          { name: "Acciughe del golfo fritte", desc: "Pastella leggera, limone", price: "14", allergens: [1, 4], tags: [] },
-          { name: "Polpo arrostito", desc: "Patate schiacciate, olive taggiasche", price: "18", allergens: [14], tags: ["gf"] },
-          { name: "Insalata di mare tiepida", desc: "Seppie, gamberi, cozze, sedano croccante", price: "18", allergens: [2, 9, 14], tags: ["gf"] },
-          { name: "Torta di verdure ligure", desc: "Bietole, borragine, prescinsêua", price: "10", allergens: [1, 3, 7], tags: ["veg"] },
-        ],
-      },
-      {
-        id: "primi",
-        title: "Primi",
-        note: "Pasta fresca fatta ogni mattina",
-        items: [
-          { name: "Spaghetti alle vongole veraci", desc: "Prezzemolo, aglio, peperoncino", price: "19", allergens: [1, 14], tags: [] },
-          { name: "Linguine allo scoglio", desc: "Cozze, vongole, gamberi, pomodorini", price: "24", allergens: [1, 2, 14], tags: [] },
-          { name: "Risotto al nero di seppia", desc: "Seppie del golfo, limone", price: "20", allergens: [7, 12, 14], tags: ["gf"] },
-          { name: "Trofie al pesto genovese", desc: "Basilico di Prà DOP, patate, fagiolini", price: "14", allergens: [1, 7, 8], tags: ["veg"] },
-          { name: "Pansoti in salsa di noci", desc: "Ripieno di erbe selvatiche", price: "15", allergens: [1, 3, 7, 8], tags: ["veg"] },
-        ],
-      },
-      {
-        id: "pescato",
-        title: "Pescato al peso",
-        note: "Al forno alla ligure, alla griglia o al sale. Prezzo a crudo, all'etto.",
-        items: [
-          { name: "Pesce San Pietro", desc: "Pescato locale", price: "6,50 / hg", allergens: [4], tags: ["gf"] },
-          { name: "Branzino di amo", desc: "Pescato locale", price: "7,00 / hg", allergens: [4], tags: ["gf"] },
-          { name: "Gamberi rossi alla griglia", desc: "Santa Margherita Ligure", price: "9,00 / hg", allergens: [2], tags: ["gf"] },
-          { name: "Scampi *", desc: "Secondo disponibilità", price: "10,00 / hg", allergens: [2], tags: ["gf"] },
-        ],
-      },
-      {
-        id: "secondi",
-        title: "Secondi",
-        note: "",
-        items: [
-          { name: "Fritto misto del golfo", desc: "Calamari, gamberi, acciughe, verdure", price: "22", allergens: [1, 2, 4, 14], tags: [] },
-          { name: "Filetto di orata", desc: "Carciofi, limone, timo", price: "24", allergens: [4], tags: ["gf"] },
-          { name: "Seppie in zimino", desc: "Bietole, pomodoro, crostone", price: "19", allergens: [1, 9, 14], tags: [] },
-          { name: "Coniglio alla ligure", desc: "Per chi non mangia pesce: olive, pinoli, rosmarino", price: "20", allergens: [8, 9, 12], tags: ["gf"] },
-        ],
-      },
-      {
-        id: "dolci",
-        title: "Dolci",
-        note: "",
-        items: [
-          { name: "Panna cotta al basilico", desc: "Fragole e menta", price: "7", allergens: [7], tags: ["gf", "veg"] },
-          { name: "Sbrisolona e zabaione", desc: "Al Marsala", price: "8", allergens: [1, 3, 7, 8, 12], tags: ["veg"] },
-          { name: "Pandolce genovese", desc: "Con un bicchiere di passito", price: "9", allergens: [1, 3, 7, 8, 12], tags: ["veg"] },
-        ],
-      },
-    ],
+    sections: menuSections("it"),
   },
   booking: {
     meta: {

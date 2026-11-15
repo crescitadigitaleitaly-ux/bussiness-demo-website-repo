@@ -1,11 +1,10 @@
-// Opening hours in restaurant local time (Europe/Rome). Days: 0 = Sunday … 6 = Saturday.
-const SLOTS: [string, string][] = [
-  ["12:30", "14:30"],
-  ["19:30", "22:30"],
-];
-const OPEN_DAYS = [0, 2, 3, 4, 5, 6]; // closed on Monday
+import { openingHours as cmsHours } from "@/lib/cms/content";
 
-export const openingHours = { days: OPEN_DAYS, slots: SLOTS };
+// Opening hours in restaurant local time (Europe/Rome). Days: 0 = Sunday … 6 = Saturday.
+// Edited in the admin panel (src/content/cms/hours.json).
+const { days: OPEN_DAYS, slots: SLOTS } = cmsHours;
+
+export const openingHours = cmsHours;
 
 const toMin = (t: string) => Number(t.slice(0, 2)) * 60 + Number(t.slice(3));
 

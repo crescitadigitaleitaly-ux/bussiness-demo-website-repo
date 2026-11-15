@@ -63,6 +63,13 @@ All four are presented on the agency site's portfolio page: https://www.crescita
     - Three booking paths (`BookingOptions`): native form, WhatsApp, TheFork (`NEXT_PUBLIC_THEFORK_URL`).
     - `MobileActionBar` is a sticky Prenota / Chiama / WhatsApp bar on phones.
     - Fonts: Libre Caslon Display, Libre Caslon Text italic and Figtree.
+    - **Admin panel `/admin` (added November 2026, branch `feature/restaurant-cms`, not merged or deployed yet):** email + password login and a simple dashboard for Today's catch, Menu & prices, Opening hours and Homepage (headline + show/hide sections), all bilingual.
+      - Editable content: `src/content/cms/{catch,menu,hours,home}.json`. `src/lib/cms/content.ts` turns them into the shapes `it.ts`/`en.ts`, `hours.ts` and the homepage already used (prices formatted per locale, hours text grouped from the day list). Schemas: `src/lib/cms/schema.ts`.
+      - Auth: `src/lib/cms/auth.ts` (scrypt hash in `ADMIN_PASSWORD_HASH`, format `scrypt:N:r:p:salt:hash`, no `$` because .env files expand it; HMAC-signed `__Host-` cookie in production; 5-try lock). Saves: Server Actions in `src/lib/cms/actions.ts`; storage in `src/lib/cms/storage.ts` (`CMS_STORAGE=file` locally, `github` = commit via API → Vercel redeploy).
+      - `/admin` has its own root layout, so `lang()` can be undefined: `hasLocale()` accepts `undefined`. `proxy.ts` skips `/admin`.
+      - Session reads call `connection()` before checking expiry (cacheComponents flags `Date.now()` otherwise), and admin pages render the session part inside `<Suspense>`.
+      - Local test login lives in the gitignored `04-restaurant/.env.local` (password in its "# Test password:" comment). Tests: `CMS_STORAGE=file npx playwright test --workers=1` (23 tests). On this Windows PC, point `PW_CHROMIUM` at `%LOCALAPPDATA%\ms-playwright\chromium_headless_shell-1255\...\chrome-headless-shell.exe`.
+      - To go live: set the admin env vars and the `CMS_GITHUB_*` token on the `restaurant-demo` Vercel project, then merge. Ask the user first: pushing to `main` redeploys all four sites.
   - **03-solar:** `src/lib/savings.ts` is the illustrative savings model. Its assumptions must stay in sync with `savings.assumptions` in both content files. The calculator links to `/quote?property=home|business&battery=yes|no&bill=<euro>`, which pre-fills the quote form (property, battery interest and the matching bill range; limits in `QuoteForm.tsx#billLimits` must match `form.bills`). Also: filterable `ProjectGallery`, animated `EnergyFlow` SVG, quote form (property, bill range, location, roof, battery interest).
 
 ## Gotchas learned the hard way (do not repeat)

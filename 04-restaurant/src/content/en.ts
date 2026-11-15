@@ -1,3 +1,4 @@
+import { catchItems, catchUpdated, heroText, hoursList, menuSections } from "@/lib/cms/content";
 import type { it } from "./it";
 
 // All content is fictional: restaurant, people, reviews and contact details are for demonstration only.
@@ -16,10 +17,7 @@ export const en: typeof it = {
     phoneNote: "demo number",
     email: "info@lanterna.example",
     coords: "44°20′N · 9°09′E",
-    hours: [
-      { days: "Tuesday – Sunday", time: "12:30 – 14:30 · 19:30 – 22:30" },
-      { days: "Monday", time: "Closed" },
-    ],
+    hours: hoursList("en"),
     season: "Terrace open April to October",
   },
   nav: {
@@ -63,24 +61,16 @@ export const en: typeof it = {
         "Seafood on the seafront of Camogli: the day's catch, crudo and a sea-view terrace. Book online, on WhatsApp or on TheFork. Demo website.",
     },
     hero: {
-      titleA: "Whatever the sea",
-      titleAccent: "brought in",
-      titleB: "this morning.",
-      lede: "Seafood on the seafront of Camogli. The menu follows the boats: it changes every day, sometimes every hour.",
+      ...heroText("en"),
       primary: "Book a table",
       secondary: "See the menu",
       imageAlt: "The restaurant's terrace overlooking the sea at sunset",
     },
     catch: {
       title: "Today's catch",
-      updated: "Updated at 11:40",
+      updated: catchUpdated("en"),
       note: "Priced by weight, before cooking. Your fish is weighed at the table.",
-      items: [
-        { name: "Red prawns from Santa Margherita", price: "9.00", unit: "hg" },
-        { name: "John Dory", price: "6.50", unit: "hg" },
-        { name: "Line-caught sea bass", price: "7.00", unit: "hg" },
-        { name: "Fried anchovies from the gulf", price: "14", unit: "" },
-      ],
+      items: catchItems("en"),
     },
     facts: [
       { title: "Sea-view terrace", text: "40 seats outdoors, April to October." },
@@ -153,74 +143,7 @@ export const en: typeof it = {
       "Cereals containing gluten", "Crustaceans", "Eggs", "Fish", "Peanuts", "Soy", "Milk",
       "Tree nuts", "Celery", "Mustard", "Sesame", "Sulphites", "Lupin", "Molluscs",
     ],
-    sections: [
-      {
-        id: "crudi",
-        title: "Crudo",
-        note: "",
-        items: [
-          { name: "Red prawns from Santa Margherita", desc: "Extra-virgin olive oil, lemon, Trapani salt", price: "24", allergens: [2], tags: ["raw", "gf"] },
-          { name: "Tuna tartare", desc: "Avocado, salmon roe, lime", price: "19", allergens: [4], tags: ["raw", "gf"] },
-          { name: "Swordfish carpaccio", desc: "Citrus, fennel, pink pepper", price: "17", allergens: [4], tags: ["raw", "gf"] },
-          { name: "Fine de Claire oysters", desc: "Per piece, with lemon and mignonette", price: "4.50 each", allergens: [14, 12], tags: ["raw", "gf"] },
-        ],
-      },
-      {
-        id: "antipasti",
-        title: "Starters",
-        note: "",
-        items: [
-          { name: "Fried anchovies from the gulf", desc: "Light batter, lemon", price: "14", allergens: [1, 4], tags: [] },
-          { name: "Roasted octopus", desc: "Crushed potatoes, Taggiasca olives", price: "18", allergens: [14], tags: ["gf"] },
-          { name: "Warm seafood salad", desc: "Cuttlefish, prawns, mussels, crunchy celery", price: "18", allergens: [2, 9, 14], tags: ["gf"] },
-          { name: "Ligurian vegetable pie", desc: "Chard, borage, prescinsêua cheese", price: "10", allergens: [1, 3, 7], tags: ["veg"] },
-        ],
-      },
-      {
-        id: "primi",
-        title: "Pasta & risotto",
-        note: "Fresh pasta made every morning",
-        items: [
-          { name: "Spaghetti with clams", desc: "Parsley, garlic, chilli", price: "19", allergens: [1, 14], tags: [] },
-          { name: "Linguine allo scoglio", desc: "Mussels, clams, prawns, cherry tomatoes", price: "24", allergens: [1, 2, 14], tags: [] },
-          { name: "Cuttlefish-ink risotto", desc: "Cuttlefish from the gulf, lemon", price: "20", allergens: [7, 12, 14], tags: ["gf"] },
-          { name: "Trofie with Genoese pesto", desc: "Basilico di Prà DOP, potatoes, green beans", price: "14", allergens: [1, 7, 8], tags: ["veg"] },
-          { name: "Pansoti with walnut sauce", desc: "Filled with wild herbs", price: "15", allergens: [1, 3, 7, 8], tags: ["veg"] },
-        ],
-      },
-      {
-        id: "pescato",
-        title: "Fish by weight",
-        note: "Baked Ligurian-style, grilled or salt-crusted. Priced per 100 g, before cooking.",
-        items: [
-          { name: "John Dory", desc: "Local catch", price: "6.50 / 100 g", allergens: [4], tags: ["gf"] },
-          { name: "Line-caught sea bass", desc: "Local catch", price: "7.00 / 100 g", allergens: [4], tags: ["gf"] },
-          { name: "Grilled red prawns", desc: "Santa Margherita Ligure", price: "9.00 / 100 g", allergens: [2], tags: ["gf"] },
-          { name: "Langoustines *", desc: "When available", price: "10.00 / 100 g", allergens: [2], tags: ["gf"] },
-        ],
-      },
-      {
-        id: "secondi",
-        title: "Mains",
-        note: "",
-        items: [
-          { name: "Mixed fry from the gulf", desc: "Squid, prawns, anchovies, vegetables", price: "22", allergens: [1, 2, 4, 14], tags: [] },
-          { name: "Sea bream fillet", desc: "Artichokes, lemon, thyme", price: "24", allergens: [4], tags: ["gf"] },
-          { name: "Cuttlefish in zimino", desc: "Chard, tomato, toasted bread", price: "19", allergens: [1, 9, 14], tags: [] },
-          { name: "Ligurian-style rabbit", desc: "For non-fish eaters: olives, pine nuts, rosemary", price: "20", allergens: [8, 9, 12], tags: ["gf"] },
-        ],
-      },
-      {
-        id: "dolci",
-        title: "Desserts",
-        note: "",
-        items: [
-          { name: "Basil panna cotta", desc: "Strawberries and mint", price: "7", allergens: [7], tags: ["gf", "veg"] },
-          { name: "Sbrisolona with zabaione", desc: "Made with Marsala", price: "8", allergens: [1, 3, 7, 8, 12], tags: ["veg"] },
-          { name: "Genoese pandolce", desc: "With a glass of passito", price: "9", allergens: [1, 3, 7, 8, 12], tags: ["veg"] },
-        ],
-      },
-    ],
+    sections: menuSections("en"),
   },
   booking: {
     meta: {

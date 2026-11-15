@@ -83,12 +83,40 @@ To go live:
 
 Add rate limiting or Cloudflare Turnstile if spam becomes a problem.
 
+## Admin panel (`/admin`)
+
+A simple dashboard where the owner logs in with an email and password and edits, in Italian and English:
+
+- **Today's catch:** fish, prices, "sold by weight", and the "Updated at" time.
+- **Menu & prices:** sections, dishes, descriptions, prices (per dish, per piece or per 100 g), allergens and dietary labels; add, delete and reorder.
+- **Opening hours:** open days and time slots. They also drive the "Open now" badge and the Restaurant JSON-LD.
+- **Homepage:** the main headline and intro, and switches to show or hide each homepage section.
+
+The editable content lives in `src/content/cms/*.json`, validated with Zod (`src/lib/cms/schema.ts`) on every save.
+
+**Turning it on**
+
+1. `node scripts/hash-password.mjs "a long password"` prints `ADMIN_PASSWORD_HASH` and `ADMIN_SESSION_SECRET`.
+2. Set `ADMIN_EMAIL`, `ADMIN_PASSWORD_HASH` and `ADMIN_SESSION_SECRET` (in `.env.local` for development, in Vercel → Settings → Environment Variables for production). Without them `/admin` returns 404 in production.
+3. Choose where saves go with `CMS_STORAGE`:
+   - `file` (default in development): writes the JSON files directly; the site shows the change on the next refresh.
+   - `github` (production on Vercel, where the file system is read-only): each save is a commit to the repo, and Vercel redeploys in about 1–2 minutes. Also set `CMS_GITHUB_TOKEN` (fine-grained token, **Contents: read and write on this repository only**), `CMS_GITHUB_REPO` (`owner/repo`), `CMS_GITHUB_BRANCH` and `CMS_GITHUB_DIR` (`04-restaurant/src/content/cms`). Every change is in the Git history, so any edit can be undone.
+
+**Security:** scrypt password hash (the plain password is never stored), signed HttpOnly + Secure + SameSite=Strict session cookie (`__Host-` prefix in production, 8-hour expiry, invalidated when the password changes), 5 wrong tries lock that login for 15 minutes, Server Actions with Next.js origin checks and a session check inside every action, strict input validation, fixed file names (no user-controlled paths), `noindex` + `no-store` headers and `Disallow: /admin` in robots.txt. The login lock is in memory per server instance; use a shared store (e.g. Upstash) for a busy real site.
+
 ## Deploying to Vercel
 
 1. Import the repository at vercel.com/new and set **Root Directory** to `04-restaurant`.
 2. Framework preset: Next.js. The default build settings work.
 3. Add the environment variables above.
 4. Deploy, then add the custom domain under Settings → Domains.
+
+## Quality checks (November 2026, after adding the admin panel)
+
+- Playwright: 23/23 passing (the 14 site tests below plus 9 admin tests: unchanged menu/catch/hours output, login redirect, noindex headers, wrong password, forged cookie, login lock, saving each editor, invalid input, log out). Run them with `CMS_STORAGE=file` and the test login in `.env.local`.
+- End-to-end on the dev server (scripted browser): a price and time changed in the admin show on `/en` and `/it` after saving; the mobile dashboard has no sideways scroll.
+- Not yet tested: `CMS_STORAGE=github` against the real repository (needs a token).
+- Lighthouse and axe were not re-run after this change.
 
 ## Quality checks (October 2026)
 
