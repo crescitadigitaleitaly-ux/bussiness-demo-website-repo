@@ -28,7 +28,7 @@ async function clip(name, viewport, run) {
 const HD = { width: 1920, height: 1080 };
 
 // 1. Design: home page hero, then a slow scroll through the sections (stops before the footer).
-await clip("design", HD, async ({ page, pause, smooth, ready }) => {
+await clip("design", HD, async ({ pause, smooth, ready }) => {
   await ready("/en");
   await pause(1800);
   for (const y of [700, 1400, 2100, 2800, 3500]) await smooth(y, 1700);

@@ -27,3 +27,13 @@ create index if not exists solar_requests_ip_time on public.solar_requests (ip_h
 create index if not exists solar_requests_time on public.solar_requests (created_at desc);
 
 comment on table public.solar_requests is 'Solar demo form submissions (solar-quote edge function). Retention: delete after 24 months.';
+
+-- Daily keep-alive ping (Vercel cron → /api/keepalive → this function). Returns only the server time; reads no table.
+create or replace function public.keepalive()
+returns timestamptz
+language sql
+stable
+set search_path = ''
+as $$ select now() $$;
+revoke all on function public.keepalive() from public;
+grant execute on function public.keepalive() to anon;
