@@ -337,7 +337,7 @@ export const it = {
     ],
   },
   form: {
-    demoNotice: "Modulo dimostrativo: la richiesta non viene inviata a nessuna azienda e non verrai ricontattato.",
+    demoNotice: "Sito dimostrativo: Aurevo Energia è un'azienda fittizia. Le richieste vengono salvate e inviate alla casella di prova di Crescita Digitale Italia, che realizza questa demo.",
     name: "Nome e cognome",
     email: "Email",
     phone: "Telefono",
@@ -365,12 +365,16 @@ export const it = {
     honeypot: "Lascia vuoto questo campo",
     submit: "Invia richiesta",
     submitting: "Invio in corso…",
-    successTitle: "Richiesta ricevuta (demo)",
+    successTitle: "Richiesta ricevuta",
     successText:
+      "Grazie! La tua richiesta è stata salvata e ti abbiamo inviato un'email di conferma con il riepilogo. In un sito reale l'azienda ti ricontatterebbe entro un giorno lavorativo per fissare un sopralluogo.",
+    demoSuccessText:
       "Grazie! Questa è una dimostrazione: la richiesta non è stata inviata a nessuno. In un sito reale l'azienda ti ricontatterebbe per fissare un sopralluogo.",
     again: "Invia un'altra richiesta",
     errorTitle: "Qualcosa non ha funzionato",
     errorText: "Non è stato possibile inviare la richiesta. Riprova tra qualche istante.",
+    rateTitle: "Troppe richieste",
+    rateText: "Hai inviato diverse richieste in poco tempo. Riprova tra un'ora oppure scrivici su WhatsApp.",
     errors: {
       name: "Inserisci nome e cognome",
       email: "Inserisci un indirizzo email valido",
@@ -396,7 +400,7 @@ export const it = {
         { h: "Finalità e base giuridica", p: "Rispondere alle richieste e preparare un preventivo (misure precontrattuali, art. 6.1.b GDPR)." },
         { h: "Conservazione", p: "Le richieste sono conservate per il tempo necessario a gestirle e comunque non oltre 24 mesi, salvo obblighi di legge." },
         { h: "Diritti dell'interessato", p: "Puoi chiedere accesso, rettifica, cancellazione, limitazione, portabilità e opporti al trattamento scrivendo al titolare, oltre a proporre reclamo al Garante per la protezione dei dati personali." },
-        { h: "Versione dimostrativa", p: "In questa demo i moduli non inviano né memorizzano alcun dato." },
+        { h: "Versione dimostrativa", p: "In questa demo le richieste inviate con i moduli vengono salvate in un database (Supabase, UE) e inoltrate via email alla casella di prova di Crescita Digitale Italia, che le usa solo per verificare il funzionamento del sito e le cancella periodicamente." },
       ],
     },
     cookies: {

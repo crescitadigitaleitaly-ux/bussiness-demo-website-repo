@@ -9,8 +9,11 @@ const base = {
   email: z.email("email").max(200, "email"),
   privacy: z.literal(true, "privacy"),
   // Spam traps: a hidden field bots fill in, and the time of first interaction with the form.
-  website: z.string().max(0).optional(),
+  // Accepted by the schema so the API route can give bots a fake success instead of a revealing 400.
+  website: z.string().max(500).optional(),
   startedAt: z.number().int(),
+  // Language of the page, used for the customer's confirmation email.
+  locale: z.enum(["it", "en"]).optional(),
 };
 
 export const contactSchema = z.object({

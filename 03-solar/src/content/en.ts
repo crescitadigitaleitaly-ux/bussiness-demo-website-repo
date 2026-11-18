@@ -339,7 +339,7 @@ export const en: typeof it = {
     ],
   },
   form: {
-    demoNotice: "Demo form: your request is not sent to any company and nobody will contact you.",
+    demoNotice: "Demo website: Aurevo Energia is a fictional company. Requests are stored and sent to the test inbox of Crescita Digitale Italia, who built this demo.",
     name: "Full name",
     email: "Email",
     phone: "Phone",
@@ -367,12 +367,16 @@ export const en: typeof it = {
     honeypot: "Leave this field empty",
     submit: "Send request",
     submitting: "Sending…",
-    successTitle: "Request received (demo)",
+    successTitle: "Request received",
     successText:
+      "Thank you! Your request has been saved and we have sent you a confirmation email with a summary. On a real website the company would contact you within one working day to book a site survey.",
+    demoSuccessText:
       "Thank you! This is a demonstration: your request has not been sent to anyone. On a real website the company would contact you to book a site survey.",
     again: "Send another request",
     errorTitle: "Something went wrong",
     errorText: "We couldn't send your request. Please try again in a moment.",
+    rateTitle: "Too many requests",
+    rateText: "You have sent several requests in a short time. Please try again in an hour or message us on WhatsApp.",
     errors: {
       name: "Please enter your full name",
       email: "Please enter a valid email address",
@@ -398,7 +402,7 @@ export const en: typeof it = {
         { h: "Purpose and legal basis", p: "Answering requests and preparing a quote (pre-contractual measures, Art. 6(1)(b) GDPR)." },
         { h: "Retention", p: "Requests are kept for as long as needed to handle them and no longer than 24 months, unless the law requires otherwise." },
         { h: "Your rights", p: "You can request access, rectification, erasure, restriction and portability, and object to processing by writing to the controller. You may also lodge a complaint with the Italian Data Protection Authority (Garante)." },
-        { h: "Demo version", p: "In this demo the forms do not send or store any data." },
+        { h: "Demo version", p: "In this demo, requests sent through the forms are stored in a database (Supabase, EU) and emailed to the test inbox of Crescita Digitale Italia, who uses them only to check that the website works and deletes them regularly." },
       ],
     },
     cookies: {

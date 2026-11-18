@@ -17,10 +17,12 @@ type Props = {
   defaults?: { property?: string; battery?: string; bill?: string };
 };
 
-type Status = "idle" | "success" | "error";
+type Status = "idle" | "success" | "error" | "rate";
 
 export function RequestForm({ locale, t, kind, defaults = {} }: Props) {
   const [status, setStatus] = useState<Status>("idle");
+  // True when the server runs without a delivery backend (nothing stored or sent).
+  const [demo, setDemo] = useState(false);
   // Time of first interaction, used by the server-side spam check.
   const [startedAt, setStartedAt] = useState(0);
 
@@ -40,9 +42,11 @@ export function RequestForm({ locale, t, kind, defaults = {} }: Props) {
       const res = await fetch("/api/quote", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ ...data, startedAt }),
+        body: JSON.stringify({ ...data, startedAt, locale }),
       });
-      setStatus(res.ok ? "success" : "error");
+      const out = (await res.json().catch(() => ({}))) as { demo?: boolean };
+      setDemo(Boolean(out.demo));
+      setStatus(res.ok ? "success" : res.status === 429 ? "rate" : "error");
     } catch {
       setStatus("error");
     }
@@ -72,7 +76,7 @@ export function RequestForm({ locale, t, kind, defaults = {} }: Props) {
       >
         <CheckCircle2 className="size-10 text-accent" aria-hidden />
         <h3 className="mt-6 font-display text-3xl font-semibold tracking-tight">{t.successTitle}</h3>
-        <p className="mt-3 max-w-prose leading-relaxed text-muted">{t.successText}</p>
+        <p className="mt-3 max-w-prose leading-relaxed text-muted">{demo ? t.demoSuccessText : t.successText}</p>
         <button
           type="button"
           className="btn-ghost mt-8"
@@ -169,7 +173,7 @@ export function RequestForm({ locale, t, kind, defaults = {} }: Props) {
       </div>
 
       <AnimatePresence>
-        {status === "error" && (
+        {(status === "error" || status === "rate") && (
           <motion.div
             ref={focusOnMount}
             tabIndex={-1}
@@ -181,8 +185,8 @@ export function RequestForm({ locale, t, kind, defaults = {} }: Props) {
           >
             <AlertCircle className="size-5 shrink-0" aria-hidden />
             <div>
-              <p className="font-medium">{t.errorTitle}</p>
-              <p>{t.errorText}</p>
+              <p className="font-medium">{status === "rate" ? t.rateTitle : t.errorTitle}</p>
+              <p>{status === "rate" ? t.rateText : t.errorText}</p>
             </div>
           </motion.div>
         )}

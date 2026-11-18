@@ -16,6 +16,10 @@ export const getDictionary = (locale: Locale): Dictionary => dictionaries[locale
 
 export const siteUrl = (process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000").replace(/\/$/, "");
 
+/** First publication and last content update (ISO dates) for the WebSite JSON-LD. Update SITE_UPDATED when the content changes. */
+export const SITE_PUBLISHED = "2026-10-18";
+export const SITE_UPDATED = "2026-11-18";
+
 // Same slug in both languages, so the switcher only swaps the prefix.
 // ponytail: shared slugs; add a per-locale slug map + proxy rewrites if Italian URLs are required.
 export function href(locale: Locale, path = "") {

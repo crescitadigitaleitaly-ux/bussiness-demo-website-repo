@@ -175,16 +175,19 @@ export default async function Home() {
       {/* PROCESS */}
       <section className="container-x py-24 sm:py-32">
         <SectionHeading eyebrow={home.process.eyebrow} title={home.process.title} />
-        <RevealGroup as="ol" className="relative mt-16 grid gap-10 md:grid-cols-5 md:gap-6">
+        {/* The connecting line sits outside the <ol>: a list may only contain <li> elements (W3C validator). */}
+        <div className="relative mt-16">
           <span aria-hidden className="absolute left-6 right-6 top-6 hidden h-px bg-gradient-to-r from-accent via-accent/40 to-transparent md:block" />
-          {process.map((p) => (
-            <RevealItem as="li" key={p.step} className="relative">
-              <span className="relative grid size-12 place-items-center rounded-full border border-accent/50 bg-paper font-display text-sm font-semibold text-accent shadow-[0_0_24px_-4px_rgb(183_227_90/0.5)]">{p.step}</span>
-              <h3 className="mt-6 font-display text-lg font-semibold tracking-tight">{p.title}</h3>
-              <p className="mt-2 text-sm leading-relaxed text-muted">{p.text}</p>
-            </RevealItem>
-          ))}
-        </RevealGroup>
+          <RevealGroup as="ol" className="relative grid gap-10 md:grid-cols-5 md:gap-6">
+            {process.map((p) => (
+              <RevealItem as="li" key={p.step} className="relative">
+                <span className="relative grid size-12 place-items-center rounded-full border border-accent/50 bg-paper font-display text-sm font-semibold text-accent shadow-[0_0_24px_-4px_rgb(183_227_90/0.5)]">{p.step}</span>
+                <h3 className="mt-6 font-display text-lg font-semibold tracking-tight">{p.title}</h3>
+                <p className="mt-2 text-sm leading-relaxed text-muted">{p.text}</p>
+              </RevealItem>
+            ))}
+          </RevealGroup>
+        </div>
       </section>
 
       {/* SAVINGS CALCULATOR */}

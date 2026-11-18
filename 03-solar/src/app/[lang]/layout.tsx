@@ -3,7 +3,7 @@ import { Geist, Sora } from "next/font/google";
 import { notFound } from "next/navigation";
 import { lang } from "next/root-params";
 import "../globals.css";
-import { getDictionary, hasLocale, locales, siteUrl } from "@/lib/i18n";
+import { getDictionary, hasLocale, locales, SITE_PUBLISHED, SITE_UPDATED, siteUrl } from "@/lib/i18n";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { WhatsAppFab } from "@/components/WhatsAppFab";
@@ -26,6 +26,8 @@ export async function generateMetadata(): Promise<Metadata> {
     title: { default: dict.home.meta.title, template: `%s` },
     description: dict.home.meta.description,
     applicationName: dict.brand.name,
+    // The agency that wrote and built the demo (true author; the company itself is fictional).
+    authors: [{ name: "Crescita Digitale Italia", url: "https://www.crescitadigitaleitalia.com" }],
     icons: { icon: "/icon.svg" },
   };
 }
@@ -86,6 +88,10 @@ export default async function RootLayout({ children }: LayoutProps<"/[lang]">) {
             url: `${siteUrl}/${locale}`,
             inLanguage: locale,
             publisher: { "@id": `${siteUrl}/#organization` },
+            author: { "@type": "Organization", name: "Crescita Digitale Italia", url: "https://www.crescitadigitaleitalia.com" },
+            // Update SITE_UPDATED (src/lib/i18n.ts) whenever the content changes.
+            datePublished: SITE_PUBLISHED,
+            dateModified: SITE_UPDATED,
           }}
         />
       </body>

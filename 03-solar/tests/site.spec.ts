@@ -107,7 +107,7 @@ test("quote form validates every field and shows the demo confirmation", async (
   await page.getByText("Vorrei capire meglio").click();
   await page.getByRole("checkbox").check();
   await page.getByRole("button", { name: "Invia richiesta" }).click();
-  await expect(page.getByRole("status")).toContainText("Richiesta ricevuta (demo)");
+  await expect(page.getByRole("status")).toContainText("la richiesta non è stata inviata a nessuno");
 });
 
 test("savings calculator updates and pre-fills the quote form", async ({ page }) => {
@@ -144,7 +144,7 @@ test("contact form (EN) submits in demo mode", async ({ page }) => {
   await page.getByLabel("Message", { exact: true }).fill("We'd like to discuss a rooftop system for our warehouse.");
   await page.getByRole("checkbox").check();
   await page.getByRole("button", { name: "Send request" }).click();
-  await expect(page.getByRole("status")).toContainText("Request received (demo)");
+  await expect(page.getByRole("status")).toContainText("has not been sent to anyone");
 });
 
 test("API rejects invalid payloads", async ({ request }) => {
